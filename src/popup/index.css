@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root, :host, #phake-overlay-container, #root {
+  /* Default Theme Tokens (Prod Dark) */
+  --bg-base: rgba(36, 36, 36, 0.92);
+  --bg-surface: rgba(48, 48, 48, 0.75);
+  --bg-surface-hover: rgba(60, 60, 60, 0.85);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --text-primary: #FFFFFF;
+  --text-muted: #8E8E93;
+  --text-dim: #666666;
+  --toggle-track: #3D3D3D;
+  --toggle-track-on: #FFFFFF;
+  --toggle-knob: #FFFFFF;
+  --toggle-knob-on: #222222;
+  --accent-color: #FFFFFF;
+  --danger-color: #FF453A;
+  --success-color: #30D158;
+
+  /* Default Density Tokens (Comfortable) */
+  --row-padding-y: 11px;
+  --row-padding-x: 14px;
+  --card-gap: 12px;
+  --card-padding: 14px;
+  --input-padding-y: 6px;
+  --font-size-row: 13px;
+  --font-size-sub: 10px;
+
+  /* Default Font */
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Density Variants */
+[data-density="compact"] {
+  --row-padding-y: 6px;
+  --row-padding-x: 12px;
+  --card-gap: 8px;
+  --card-padding: 10px;
+  --input-padding-y: 3.5px;
+  --font-size-row: 12px;
+  --font-size-sub: 9.5px;
+}
+
+[data-density="comfortable"] {
+  --row-padding-y: 11px;
+  --row-padding-x: 14px;
+  --card-gap: 12px;
+  --card-padding: 14px;
+  --input-padding-y: 6px;
+  --font-size-row: 13px;
+  --font-size-sub: 10px;
+}
+
+html, body, #root, #phake-overlay-container {
+  margin: 0;
+  padding: 0;
+  width: 380px;
+  height: 590px;
+  overflow: hidden;
+  background-color: transparent !important;
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+/* Base styling for form controls without forcing pitch-black */
+input, select, textarea, button {
+  color: #FFFFFF;
+  color-scheme: dark;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+button, a {
+  outline: none !important;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+button:focus,
+button:focus-visible,
+button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.15s ease-out forwards;
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
